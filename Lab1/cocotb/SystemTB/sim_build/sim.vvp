@@ -1,0 +1,132 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x59e2bdf992d0 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_0x59e2bdfae140 .scope module, "System" "System" 3 16;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 8 "SW";
+    .port_info 1 /INPUT 1 "Reset";
+    .port_info 2 /INPUT 1 "Clk";
+    .port_info 3 /OUTPUT 8 "Segments";
+    .port_info 4 /OUTPUT 4 "AN";
+o0x7a5027ee8468 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x59e2bdfc46c0_0 .net "AN", 3 0, o0x7a5027ee8468;  0 drivers
+o0x7a5027ee8498 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e2bdfc47a0_0 .net "Clk", 0 0, o0x7a5027ee8498;  0 drivers
+o0x7a5027ee84c8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e2bdfc4860_0 .net "Reset", 0 0, o0x7a5027ee84c8;  0 drivers
+o0x7a5027ee84f8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x59e2bdfc4930_0 .net "SW", 7 0, o0x7a5027ee84f8;  0 drivers
+o0x7a5027ee8528 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x59e2bdfc4a10_0 .net "Segments", 7 0, o0x7a5027ee8528;  0 drivers
+S_0x59e2bdfae2d0 .scope module, "ControllerInst" "Controller" 3 24, 4 16 0, S_0x59e2bdfae140;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "Reset";
+    .port_info 1 /INPUT 1 "Clk";
+    .port_info 2 /OUTPUT 4 "AN";
+    .port_info 3 /OUTPUT 1 "Selector";
+L_0x59e2bdfc4be0 .functor BUFZ 4, v0x59e2bdfc38f0_0, C4<0000>, C4<0000>, C4<0000>;
+L_0x59e2bdfc4ca0 .functor BUFZ 1, v0x59e2bdfc3b00_0, C4<0>, C4<0>, C4<0>;
+v0x59e2bdfae520_0 .net "AN", 3 0, L_0x59e2bdfc4be0;  1 drivers
+o0x7a5027ee8048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e2bdfc36d0_0 .net "Clk", 0 0, o0x7a5027ee8048;  0 drivers
+o0x7a5027ee8078 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e2bdfc3790_0 .net "Reset", 0 0, o0x7a5027ee8078;  0 drivers
+v0x59e2bdfc3830_0 .net "Selector", 0 0, L_0x59e2bdfc4ca0;  1 drivers
+v0x59e2bdfc38f0_0 .var "an", 3 0;
+v0x59e2bdfc3a20_0 .var "counter", 17 0;
+v0x59e2bdfc3b00_0 .var "selector", 0 0;
+E_0x59e2bdfa9460 .event posedge, v0x59e2bdfc36d0_0;
+S_0x59e2bdfc3c40 .scope module, "MultiplexerInst" "Multiplexer" 3 34, 5 16 0, S_0x59e2bdfae140;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "In0";
+    .port_info 1 /INPUT 4 "In1";
+    .port_info 2 /INPUT 1 "Selector";
+    .port_info 3 /OUTPUT 4 "DataOut";
+v0x59e2bdfc3eb0_0 .net "DataOut", 3 0, L_0x59e2bdfc4d70;  1 drivers
+o0x7a5027ee8258 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x59e2bdfc3f90_0 .net "In0", 3 0, o0x7a5027ee8258;  0 drivers
+o0x7a5027ee8288 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x59e2bdfc4070_0 .net "In1", 3 0, o0x7a5027ee8288;  0 drivers
+o0x7a5027ee82b8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x59e2bdfc4130_0 .net "Selector", 0 0, o0x7a5027ee82b8;  0 drivers
+L_0x59e2bdfc4d70 .functor MUXZ 4, o0x7a5027ee8258, o0x7a5027ee8288, o0x7a5027ee82b8, C4<>;
+S_0x59e2bdfc42a0 .scope module, "SevenSegmentDecoderInst" "SevenSegmentDecoder" 3 30, 6 16 0, S_0x59e2bdfae140;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "DataIn";
+    .port_info 1 /OUTPUT 8 "Segments";
+o0x7a5027ee83a8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0x59e2bdfc4480_0 .net "DataIn", 3 0, o0x7a5027ee83a8;  0 drivers
+o0x7a5027ee83d8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v0x59e2bdfc4580_0 .net "Segments", 7 0, o0x7a5027ee83d8;  0 drivers
+    .scope S_0x59e2bdfae2d0;
+T_0 ;
+    %wait E_0x59e2bdfa9460;
+    %load/vec4 v0x59e2bdfc3790_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 15, 0, 4;
+    %assign/vec4 v0x59e2bdfc38f0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x59e2bdfc3b00_0, 0;
+    %pushi/vec4 0, 0, 18;
+    %assign/vec4 v0x59e2bdfc3a20_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x59e2bdfc3a20_0;
+    %addi 1, 0, 18;
+    %assign/vec4 v0x59e2bdfc3a20_0, 0;
+    %load/vec4 v0x59e2bdfc3a20_0;
+    %parti/s 1, 17, 6;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.2, 4;
+    %pushi/vec4 14, 0, 4;
+    %assign/vec4 v0x59e2bdfc38f0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x59e2bdfc3b00_0, 0;
+    %jmp T_0.3;
+T_0.2 ;
+    %pushi/vec4 13, 0, 4;
+    %assign/vec4 v0x59e2bdfc38f0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x59e2bdfc3b00_0, 0;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x59e2bdfc42a0;
+T_1 ;
+    %vpi_call/w 6 27 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 6 28 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x59e2bdfc42a0 {0 0 0};
+    %end;
+    .thread T_1;
+    .scope S_0x59e2bdfc3c40;
+T_2 ;
+    %vpi_call/w 5 27 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 5 28 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x59e2bdfc3c40 {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_0x59e2bdfae140;
+T_3 ;
+    %vpi_call/w 3 43 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 3 44 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x59e2bdfae140 {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 7;
+    "N/A";
+    "<interactive>";
+    "-";
+    "/home/dej/Desktop/HW_SYN_LAB_TA/lab/Lab1/cocotb/SystemTB/../../src/System.v";
+    "/home/dej/Desktop/HW_SYN_LAB_TA/lab/Lab1/cocotb/SystemTB/../../src/Controller.v";
+    "/home/dej/Desktop/HW_SYN_LAB_TA/lab/Lab1/cocotb/SystemTB/../../src/Multiplexer.v";
+    "/home/dej/Desktop/HW_SYN_LAB_TA/lab/Lab1/cocotb/SystemTB/../../src/SevenSegmentDecoder.v";

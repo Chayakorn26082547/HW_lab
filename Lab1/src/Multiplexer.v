@@ -19,9 +19,12 @@ module Multiplexer (
     input  wire       Selector,
     output wire [3:0] DataOut
 );
-// TA part
-    assign DataOut = Selector ? In1 : In0;
-// end TA part
+// Add code here //
+
+
+// End of code //
+
+// cocotb dump waveforms
 `ifdef COCOTB_SIM
 initial begin
     $dumpfile("waveform.vcd");  // Name of the dump file

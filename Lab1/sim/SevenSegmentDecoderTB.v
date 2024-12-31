@@ -33,7 +33,7 @@ module SevenSegmentDecoderTB ();
     input integer TestCaseNo;
     input reg [7:0] expected_Segments;  // Expected output
     begin
-      if (Segments != expected_Segments) begin
+      if (Segments !== expected_Segments) begin
         $error("ERROR: TestCaseNo %0d | Time = %0t | DataIn = %b | Segments = %b (Expected: %b)",
                TestCaseNo, $time, DataIn, Segments, expected_Segments);
         flag = 1;

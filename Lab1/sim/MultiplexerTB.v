@@ -38,7 +38,7 @@ module MultiplexerTB ();
     input integer TestCaseNo;
     input reg [3:0] expected_DataOut;  // Expected output
     begin
-      if (DataOut != expected_DataOut) begin
+      if (DataOut !== expected_DataOut) begin
         $error(
             "ERROR: TestCaseNo %0d | Time = %0t | In0 = %b, In1 = %b, Selector = %b | DataOut = %b (Expected: %b)",
             TestCaseNo, $time, In0, In1, Selector, DataOut, expected_DataOut);
