@@ -3,7 +3,7 @@ from cocotb.triggers import Timer
 
 
 @cocotb.test()
-async def MultiplexerTB(dut):
+async def SevenSegmentDecoderTB(dut):
     """Try accessing the design."""
     dut._log.info("Running test!")
     # create a testbench here

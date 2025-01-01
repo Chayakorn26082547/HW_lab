@@ -4,7 +4,7 @@ from cocotb.clock import Clock
 
 
 @cocotb.test()
-async def MultiplexerTB(dut):
+async def SystemTB(dut):
     """Try accessing the design."""
 
     segment_values = [
