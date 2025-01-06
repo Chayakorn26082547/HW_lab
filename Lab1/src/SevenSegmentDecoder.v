@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: Chulalongkorn University
-// Engineer: Dej Wongwirathorn
-// 
+// Company:
+// Engineer:
+//
 // Create Date: 12/23/2024 04:17:24 AM
 // Design Name: Exercise1
 // Module Name: SevenSegmentDecoder
