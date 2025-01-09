@@ -1,8 +1,5 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
-//
 // Create Date: 12/23/2024 04:13:56 AM
 // Design Name: Exercise1
 // Module Name: Controller

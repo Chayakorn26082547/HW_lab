@@ -1,34 +1,36 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Create Date: 12/23/2024 05:06:53 AM
-// Design Name: Exercise1
-// Module Name: MultiplexerTB
-// Project Name: Exercise1
+// Create Date: 01/09/2025 03:29:22 PM
+// Design Name: BCD_Counter
+// Module Name: InputStabilizerTB
+// Project Name: BCD_Counter
 // Target Devices: Basys3
 // Tool Versions: 2023.2
-// Description: Testbench for the Multiplexer module
+// Description: The Testbench for the InputStabilizer module
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module MultiplexerTB ();
+module InputStabilizerTB ();
   // reg/wire declaration
-  reg  [3:0] In0;
-  reg  [3:0] In1;
-  reg        Selector;
+  reg  [3:0] DataIn;
+  reg        Clk;
+  reg        Reset;
   wire [3:0] DataOut;
 
   // instantiate the Multiplexer module
-  Multiplexer MultiplexerInst (
-      .In0(In0),
-      .In1(In1),
-      .Selector(Selector),
+  InputSanitizer #(
+      .CounterWidth(2),
+      .DebounceTime(3)
+  ) InputSanitizerInst (
+      .DataIn(DataIn),
+      .Clk(Clk),
+      .Reset(Reset),
       .DataOut(DataOut)
   );
   // instantiate variable
   integer flag = 0;
   integer TestCaseNo = 0;
   integer i;
-  integer j;
 
   // task to check the output
   task check_output;
@@ -36,29 +38,32 @@ module MultiplexerTB ();
     input reg [3:0] expected_DataOut;  // Expected output
     begin
       if (DataOut !== expected_DataOut) begin
-        $error(
-            "ERROR: TestCaseNo %0d | Time = %0t | In0 = %b, In1 = %b, Selector = %b | DataOut = %b (Expected: %b)",
-            TestCaseNo, $time, In0, In1, Selector, DataOut, expected_DataOut);
+        $error("ERROR: TestCaseNo %0d | DataOut = %b (Expected: %b)", TestCaseNo, $time, DataOut,
+               expected_DataOut);
         flag = 1;
       end
     end
   endtask
 
+  localparam CLK_PERIOD = 2;
+  always #(CLK_PERIOD / 2.0) Clk = ~Clk;
+
   // test cases
   initial begin
+    Clk = 0;
+    Reset = 0;
+    DataIn = 0;
+    #(CLK_PERIOD + 0.1);
+    Reset = 1;
+    #(CLK_PERIOD);
+    Reset = 0;
+    check_output(0, 0);
     for (i = 0; i < 16; i = i + 1) begin
-      for (j = 0; j < 16; j = j + 1) begin
-        In0 = i;
-        In1 = j;
-        Selector = 0;
-        #1;
-        check_output(TestCaseNo, i);
-        TestCaseNo = TestCaseNo + 1;
-        Selector   = 1;
-        #1;
-        check_output(TestCaseNo, j);
-        TestCaseNo = TestCaseNo + 1;
-      end
+      DataIn = i;
+      #(CLK_PERIOD * 4);
+      DataIn = 0;
+      check_output(i + 1, i);
+      #(CLK_PERIOD * 2);
     end
     if (flag == 0) begin
       $display("All test cases pass");
@@ -67,5 +72,4 @@ module MultiplexerTB ();
     end
     $finish;
   end
-
 endmodule
