@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1736779894" />
+    <testcase name="SevenSegmentDecoderTB" classname="TB" file="D:\HW_lab\lab\Lab1\cocotb\SevenSegmentDecoderTB\TB.py" lineno="5" time="0.0012645721435546875" sim_time_ns="16.001" ratio_time="12653.291535444949" />
+  </testsuite>
+</testsuites>

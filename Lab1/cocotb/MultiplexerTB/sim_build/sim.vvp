@@ -1,0 +1,38 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_000001b424f41950 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_000001b424f41ae0 .scope module, "Multiplexer" "Multiplexer" 3 13;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 4 "In0";
+    .port_info 1 /INPUT 4 "In1";
+    .port_info 2 /INPUT 1 "Selector";
+    .port_info 3 /OUTPUT 4 "DataOut";
+v000001b424f42140_0 .net "DataOut", 3 0, L_000001b424f4b8c0;  1 drivers
+o000001b424f961f8 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000001b424f41c70_0 .net "In0", 3 0, o000001b424f961f8;  0 drivers
+o000001b424f96228 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v000001b424f41d10_0 .net "In1", 3 0, o000001b424f96228;  0 drivers
+o000001b424f96258 .functor BUFZ 1, C4<z>; HiZ drive
+v000001b424f4b820_0 .net "Selector", 0 0, o000001b424f96258;  0 drivers
+L_000001b424f4b8c0 .functor MUXZ 4, o000001b424f961f8, o000001b424f96228, o000001b424f96258, C4<>;
+    .scope S_000001b424f41ae0;
+T_0 ;
+    %vpi_call/w 3 26 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 3 27 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001b424f41ae0 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "D:/HW_lab/lab/Lab1/cocotb/MultiplexerTB/../../src/Multiplexer.v";

@@ -17,8 +17,7 @@ module Multiplexer (
     output wire [3:0] DataOut
 );
 // Add code here //
-
-
+    assign DataOut = (Selector) ? In1 : In0;
 // End of code //
 
 // cocotb dump waveforms

@@ -17,22 +17,29 @@ module System (
     output wire [7:0] Segments,
     output wire [3:0] AN
 );
+  // Internal signals
+    wire [3:0] Data0, Data1;      // 4-bit data inputs for the multiplexer
+    wire [3:0] SelectedData;      // Output from the multiplexer
+    wire       Selector;          // Selector signal from the controller
+
+    assign Data0 = SW[3:0];
+    assign Data1 = SW[7:4];
 
   Controller ControllerInst (
-      .Reset(),
-      .Clk(),
-      .AN(),
-      .Selector()
+      .Reset(Reset),
+      .Clk(Clk),
+      .AN(AN),
+      .Selector(Selector)
   );
   SevenSegmentDecoder SevenSegmentDecoderInst (
-      .DataIn  (),
-      .Segments()
+      .DataIn  (SelectedData),
+      .Segments(Segments)
   );
   Multiplexer MultiplexerInst (
-      .In0(),
-      .In1(),
-      .Selector(),
-      .DataOut()
+      .In0(Data0),
+      .In1(Data1),
+      .Selector(Selector),
+      .DataOut(SelectedData)
   );
   // cocotb dump waveforms
 `ifdef COCOTB_SIM
