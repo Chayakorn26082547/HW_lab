@@ -14,7 +14,7 @@ module SevenSegmentDecoder (
     input  wire [3:0] DataIn,
     output wire [7:0] Segments
 );
-  reg [7:0] segments;
+  reg [7:0] segments = 8'b11111111;
   assign Segments = segments;
   always @(*) begin
     case (DataIn)

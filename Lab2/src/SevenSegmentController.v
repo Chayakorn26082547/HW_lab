@@ -18,7 +18,7 @@ module SevenSegmentController #(
     output wire [3:0] AN,
     output wire [1:0] Selector
 );
-  reg [ControllerCounterWidth-1:0] Counter;
+  reg [ControllerCounterWidth-1:0] Counter = 0;
   // Add your code here
 
   // End of your code

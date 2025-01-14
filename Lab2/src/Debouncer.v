@@ -19,7 +19,7 @@ module Debouncer #(
     input  wire Reset,
     output wire DataOut
 );
-  reg [CounterWidth-1:0] Counter;
+  reg [CounterWidth-1:0] Counter = 0;
   // Add your code here
 
   // End of your code

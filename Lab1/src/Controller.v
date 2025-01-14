@@ -16,9 +16,9 @@ module Controller (
     output wire [3:0] AN,
     output wire       Selector
 );
-  reg [ 3:0] an;
-  reg        selector;
-  reg [17:0] counter;
+  reg [ 3:0] an = 4'b1111;
+  reg        selector = 1'b0;
+  reg [17:0] counter = 0;
   assign AN = an;
   assign Selector = selector;
   always @(posedge Clk) begin
