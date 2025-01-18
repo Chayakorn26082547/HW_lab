@@ -16,6 +16,9 @@ module Multiplexer (
     output wire [ 3:0] DataOut
 );
   // Add your code here
-
+  assign DataOut = Selector == 2'b00 ? DataIn[3:0] :
+                   Selector == 2'b01 ? DataIn[7:4] :
+                   Selector == 2'b10 ? DataIn[11:8] :
+                   Selector == 2'b11 ? DataIn[15:12] : 4'b0000;
   // End of your code
 endmodule
