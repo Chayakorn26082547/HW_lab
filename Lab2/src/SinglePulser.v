@@ -17,6 +17,18 @@ module SinglePulser (
     output wire DataOut
 );
   // Add your code here
+  reg prev_DataIn; // Register to store the previous state of DataIn
+  reg dataOut;
+  assign DataOut = dataOut;
 
+  always @(posedge Clk) begin
+      if (Reset) begin
+          prev_DataIn <= 0; 
+          dataOut <= 0;     
+      end else begin
+          dataOut <= DataIn & ~prev_DataIn;
+          prev_DataIn <= DataIn;
+      end
+  end
   // End of your code
 endmodule

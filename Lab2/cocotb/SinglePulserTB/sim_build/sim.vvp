@@ -1,0 +1,74 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_00000260fab64ae0 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_00000260fab64c70 .scope module, "SinglePulserTB" "SinglePulserTB" 3 13;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "DataIn";
+    .port_info 1 /INPUT 1 "Clk";
+    .port_info 2 /INPUT 1 "Reset";
+    .port_info 3 /OUTPUT 1 "DataOut";
+o00000260fab67fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000260fab1cf30_0 .net "Clk", 0 0, o00000260fab67fd8;  0 drivers
+o00000260fab68008 .functor BUFZ 1, C4<z>; HiZ drive
+v00000260fab11ae0_0 .net "DataIn", 0 0, o00000260fab68008;  0 drivers
+v00000260fab11b80_0 .net "DataOut", 0 0, L_00000260fab1ae90;  1 drivers
+o00000260fab68068 .functor BUFZ 1, C4<z>; HiZ drive
+v00000260fab11c20_0 .net "Reset", 0 0, o00000260fab68068;  0 drivers
+S_00000260fab11950 .scope module, "SinglePulserInst" "SinglePulser" 3 19, 4 13 0, S_00000260fab64c70;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "DataIn";
+    .port_info 1 /INPUT 1 "Clk";
+    .port_info 2 /INPUT 1 "Reset";
+    .port_info 3 /OUTPUT 1 "DataOut";
+L_00000260fab1ae90 .functor BUFZ 1, v00000260fab1cdf0_0, C4<0>, C4<0>, C4<0>;
+v00000260fab64e00_0 .net "Clk", 0 0, o00000260fab67fd8;  alias, 0 drivers
+v00000260fab64ea0_0 .net "DataIn", 0 0, o00000260fab68008;  alias, 0 drivers
+v00000260fab1ccb0_0 .net "DataOut", 0 0, L_00000260fab1ae90;  alias, 1 drivers
+v00000260fab1cd50_0 .net "Reset", 0 0, o00000260fab68068;  alias, 0 drivers
+v00000260fab1cdf0_0 .var "dataOut", 0 0;
+v00000260fab1ce90_0 .var "prev_DataIn", 0 0;
+E_00000260fab65a20 .event posedge, v00000260fab64e00_0;
+    .scope S_00000260fab11950;
+T_0 ;
+    %wait E_00000260fab65a20;
+    %load/vec4 v00000260fab1cd50_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000260fab1ce90_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000260fab1cdf0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v00000260fab64ea0_0;
+    %load/vec4 v00000260fab1ce90_0;
+    %inv;
+    %and;
+    %assign/vec4 v00000260fab1cdf0_0, 0;
+    %load/vec4 v00000260fab64ea0_0;
+    %assign/vec4 v00000260fab1ce90_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00000260fab64c70;
+T_1 ;
+    %vpi_call/w 3 29 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 3 30 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000260fab64c70 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "D:/HW_lab/lab/Lab2/cocotb/SinglePulserTB/SinglePulserTB.v";
+    "D:/HW_lab/lab/Lab2/cocotb/SinglePulserTB/../../src/SinglePulser.v";

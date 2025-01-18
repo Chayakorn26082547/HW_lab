@@ -48,8 +48,63 @@ module SinglePulserTB ();
 
   // test cases
   initial begin
-    // Insert test cases here
-    
+    Clk = 0;
+    Reset = 1;
+    DataIn = 0;
+    #(CLK_PERIOD);
+
+    Reset = 0;
+    #(CLK_PERIOD);
+
+    // Test Case 1: No pulse when DataIn is 0
+    DataIn = 0;
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 0);
+    // Test Case 2: Generate pulse when DataIn rises from 0 to 1
+    DataIn = 1;
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 1);
+    // Test Case 3: No pulse when DataIn remains 1
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 0);
+    // Test Case 4: Generate another pulse on a new rising edge
+    DataIn = 0;
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 0);
+    DataIn = 1;
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 1);
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 0);
+
+    //Test Case 5: Reset signal test
+    Reset = 1;
+    DataIn = 1;
+    #(CLK_PERIOD);
+    Reset = 0;
+    #(CLK_PERIOD);
+    check_output(TestCaseNo++, 0);
+
+    //Test Case 6: for loop test
+    for (j = 0; j < 10; j = j + 1) begin
+      for (i = 0; i < 10; i = i + 1) begin
+        DataIn = 0;
+        #(CLK_PERIOD);
+        check_output(TestCaseNo++, 0);
+        DataIn = 1;
+        #(CLK_PERIOD);
+        check_output(TestCaseNo++, 1);
+        #(CLK_PERIOD);
+        check_output(TestCaseNo++, 0);
+      end
+      Reset = 1;
+      #(CLK_PERIOD);
+      Reset = 0;
+      #(CLK_PERIOD);
+      check_output(TestCaseNo++, 0);
+  end
+
+
     if (flag == 0) begin
       $display("All test cases pass");
     end else begin
