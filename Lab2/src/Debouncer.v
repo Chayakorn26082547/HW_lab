@@ -19,8 +19,26 @@ module Debouncer #(
     input  wire Reset,
     output wire DataOut
 );
-  reg [CounterWidth-1:0] Counter = 0;
-  // Add your code here
-
+  // Internal register declarations
+  reg [CounterWidth-1:0] Counter; // Counter for debounce timing
+  reg stable_state;               // Stores the last stable state of DataIn
+  reg dataOut;
+  assign DataOut = dataOut;
+  // Process for debounce logic
+  always @(posedge Clk) begin
+    if (Reset) begin
+      // Reset all internal states
+      Counter <= 0;
+      stable_state <= 0;
+      dataOut <= 0;
+    end else if (Counter >= DebounceTime - 1) begin
+      // Input state is changing, increment the counter
+      stable_state <= DataIn;
+      dataOut <= DataIn;
+      Counter <= 0;
+    end else begin
+        Counter <= Counter + 1;
+      end
+    end
   // End of your code
 endmodule

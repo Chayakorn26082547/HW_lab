@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1737276828" />
-    <testcase name="SingleBCDTB" classname="TB" file="D:\HW_lab\lab\Lab2\cocotb\SingleBCDTB\TB.py" lineno="5" time="0.008515119552612305" sim_time_ns="154.201" ratio_time="18109.082209267814" />
+    <property name="random_seed" value="1737277272" />
+    <testcase name="SingleBCDTB" classname="TB" file="D:\HW_lab\lab\Lab2\cocotb\SingleBCDTB\TB.py" lineno="5" time="0.008610725402832031" sim_time_ns="154.201" ratio_time="17908.015037767193" />
   </testsuite>
 </testsuites>

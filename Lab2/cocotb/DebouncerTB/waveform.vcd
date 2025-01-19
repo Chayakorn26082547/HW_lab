@@ -1,0 +1,133 @@
+$date
+	Sun Jan 19 17:07:20 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module DebouncerTB $end
+$var wire 1 ! Clk $end
+$var wire 1 " DataIn $end
+$var wire 1 # Reset $end
+$var wire 1 $ DataOut $end
+$scope module DebouncerInst $end
+$var wire 1 ! Clk $end
+$var wire 1 " DataIn $end
+$var wire 1 $ DataOut $end
+$var wire 1 # Reset $end
+$var parameter 32 % CounterWidth $end
+$var parameter 32 & DebounceTime $end
+$var reg 2 ' Counter [1:0] $end
+$var reg 1 ( dataOut $end
+$var reg 1 ) stable_state $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 &
+b10 %
+$end
+#0
+$dumpvars
+x)
+x(
+bx '
+x$
+0#
+0"
+1!
+$end
+#500
+0!
+#1000
+1!
+#1200
+1#
+#1500
+0!
+#2000
+0$
+0(
+0)
+b0 '
+1!
+#2200
+1"
+0#
+#2500
+0!
+#3000
+b1 '
+1!
+#3500
+0!
+#4000
+b10 '
+1!
+#4500
+0!
+#5000
+b0 '
+1$
+1(
+1)
+1!
+#5200
+0"
+#5500
+0!
+#6000
+b1 '
+1!
+#6500
+0!
+#7000
+b10 '
+1!
+#7500
+0!
+#8000
+b0 '
+0$
+0(
+0)
+1!
+#8200
+1"
+#8500
+0!
+#9000
+b1 '
+1!
+#9500
+0!
+#10000
+b10 '
+1!
+#10500
+0!
+#11000
+b0 '
+1$
+1(
+1)
+1!
+#11500
+0!
+#12000
+b1 '
+1!
+#12500
+0!
+#13000
+b10 '
+1!
+#13500
+0!
+#14000
+b0 '
+1!
+#14201
