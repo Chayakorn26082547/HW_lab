@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1737281541" />
+    <testcase name="InputSanitizerTB" classname="TB" file="D:\HW_lab\lab\Lab2\cocotb\InputSanitizerTB\TB.py" lineno="5" time="0.0066089630126953125" sim_time_ns="92.201" ratio_time="13950.902709379508" />
+  </testsuite>
+</testsuites>

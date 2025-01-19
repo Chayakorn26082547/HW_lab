@@ -20,6 +20,45 @@ module InputSanitizer #(
     output wire [3:0] DataOut
 );
   // Add your code here
+  // Debouncer instances for each bit of DataIn
+  Debouncer #(
+      .CounterWidth(CounterWidth),
+      .DebounceTime(DebounceTime)
+  ) debouncer0 (
+      .DataIn(DataIn[0]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(DataOut[0])
+  );
 
+  Debouncer #(
+      .CounterWidth(CounterWidth),
+      .DebounceTime(DebounceTime)
+  ) debouncer1 (
+      .DataIn(DataIn[1]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(DataOut[1])
+  );
+
+  Debouncer #(
+      .CounterWidth(CounterWidth),
+      .DebounceTime(DebounceTime)
+  ) debouncer2 (
+      .DataIn(DataIn[2]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(DataOut[2])
+  );
+
+  Debouncer #(
+      .CounterWidth(CounterWidth),
+      .DebounceTime(DebounceTime)
+  ) debouncer3 (
+      .DataIn(DataIn[3]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(DataOut[3])
+  );
   // End of your code
 endmodule
