@@ -19,31 +19,27 @@ module SingleBCD (
     output wire       Cout
 );
   // Add your code here
-  reg [3:0] dataOut = 4'b0000;
+  reg [3:0] dataOut;
   assign DataOut = dataOut;
-  reg cout = 1'b0;
+  reg cout;
   assign Cout = cout;
-  //Assert Cout when DataOut is 9 and Trigger is high or Cin is high
-  
 
-  //Counter logic
-  always @(posedge Clk)           
-      begin                                        
-          if(Reset) begin
-            dataOut <= 4'b0000;
-            cout <= 1'b0;
-          end else if(Trigger || Cin) begin
-            if (dataOut == 4'b1001) begin
-              //Wrap around to 0 When DataOut is 9
-              dataOut <= 4'b0000;
-              cout <= 1'b1;
-            end else begin
-              //Increment counter
-              dataOut <= dataOut + 1;
-              cout <= 1'b0;
-            end
-          end                                 
-      end                                          
-  
+  reg [3:0] increment;
+  always @(*) begin
+    increment = (Trigger & ~Reset) + (Cin & ~Reset);
+    if (dataOut + increment > 4'b1001) begin
+      cout = 1;
+    end
+  end
+
+  always @(posedge Clk) begin
+    if (Reset) begin
+      dataOut <= 4'b0000;
+      cout <= 0;
+    end else begin
+      dataOut <= (dataOut + increment)%10;
+      cout <= 0;
+    end
+  end
   // End of your code
 endmodule
