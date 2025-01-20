@@ -53,6 +53,14 @@ module SingleBCDTB ();
 
   // test cases
   initial begin
+    // Reset here
+    Trigger = 0;
+    Reset = 0;
+    Clk = 0;
+    Cin = 0;
+    #(CLK_PERIOD + 0.1);
+    Reset = 1;
+    check_output(0, 0, 0);
     // Insert test cases here
     Clk = 0;
     Reset = 0;

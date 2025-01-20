@@ -48,6 +48,13 @@ module SinglePulserTB ();
 
   // test cases
   initial begin
+    DataIn = 0;
+    Reset = 0;
+    Clk = 0;
+    #(CLK_PERIOD + 0.1);
+    Reset = 1;
+    check_output(0, 0);
+
     Clk = 0;
     Reset = 1;
     DataIn = 0;
