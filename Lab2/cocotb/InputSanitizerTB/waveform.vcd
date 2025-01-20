@@ -1,5 +1,5 @@
 $date
-	Sun Jan 19 17:12:21 2025
+	Tue Jan 21 00:16:17 2025
 $end
 $version
 	Icarus Verilog
@@ -16,87 +16,133 @@ $scope module InputSanitizerInst $end
 $var wire 1 ! Clk $end
 $var wire 4 % DataIn [3:0] $end
 $var wire 1 # Reset $end
-$var wire 4 & DataOut [3:0] $end
-$var parameter 32 ' CounterWidth $end
-$var parameter 32 ( DebounceTime $end
+$var wire 4 & dataOut [3:0] $end
+$var wire 4 ' DataOut [3:0] $end
+$var parameter 32 ( CounterWidth $end
+$var parameter 32 ) DebounceTime $end
+$scope module SinglePuler0 $end
+$var wire 1 ! Clk $end
+$var wire 1 * DataIn $end
+$var wire 1 # Reset $end
+$var wire 1 + DataOut $end
+$var reg 1 + dataOut $end
+$var reg 1 , prev_DataIn $end
+$upscope $end
+$scope module SinglePuler1 $end
+$var wire 1 ! Clk $end
+$var wire 1 - DataIn $end
+$var wire 1 # Reset $end
+$var wire 1 . DataOut $end
+$var reg 1 . dataOut $end
+$var reg 1 / prev_DataIn $end
+$upscope $end
+$scope module SinglePuler2 $end
+$var wire 1 ! Clk $end
+$var wire 1 0 DataIn $end
+$var wire 1 # Reset $end
+$var wire 1 1 DataOut $end
+$var reg 1 1 dataOut $end
+$var reg 1 2 prev_DataIn $end
+$upscope $end
+$scope module SinglePuler3 $end
+$var wire 1 ! Clk $end
+$var wire 1 3 DataIn $end
+$var wire 1 # Reset $end
+$var wire 1 4 DataOut $end
+$var reg 1 4 dataOut $end
+$var reg 1 5 prev_DataIn $end
+$upscope $end
 $scope module debouncer0 $end
 $var wire 1 ! Clk $end
-$var wire 1 ) DataIn $end
+$var wire 1 6 DataIn $end
 $var wire 1 # Reset $end
-$var wire 1 * DataOut $end
-$var parameter 32 + CounterWidth $end
-$var parameter 32 , DebounceTime $end
-$var reg 2 - Counter [1:0] $end
-$var reg 1 * dataOut $end
-$var reg 1 . stable_state $end
+$var wire 1 7 DataOut $end
+$var parameter 32 8 CounterWidth $end
+$var parameter 32 9 DebounceTime $end
+$var reg 2 : Counter [1:0] $end
+$var reg 1 7 dataOut $end
+$var reg 1 ; stable_state $end
 $upscope $end
 $scope module debouncer1 $end
 $var wire 1 ! Clk $end
-$var wire 1 / DataIn $end
+$var wire 1 < DataIn $end
 $var wire 1 # Reset $end
-$var wire 1 0 DataOut $end
-$var parameter 32 1 CounterWidth $end
-$var parameter 32 2 DebounceTime $end
-$var reg 2 3 Counter [1:0] $end
-$var reg 1 0 dataOut $end
-$var reg 1 4 stable_state $end
+$var wire 1 = DataOut $end
+$var parameter 32 > CounterWidth $end
+$var parameter 32 ? DebounceTime $end
+$var reg 2 @ Counter [1:0] $end
+$var reg 1 = dataOut $end
+$var reg 1 A stable_state $end
 $upscope $end
 $scope module debouncer2 $end
 $var wire 1 ! Clk $end
-$var wire 1 5 DataIn $end
+$var wire 1 B DataIn $end
 $var wire 1 # Reset $end
-$var wire 1 6 DataOut $end
-$var parameter 32 7 CounterWidth $end
-$var parameter 32 8 DebounceTime $end
-$var reg 2 9 Counter [1:0] $end
-$var reg 1 6 dataOut $end
-$var reg 1 : stable_state $end
+$var wire 1 C DataOut $end
+$var parameter 32 D CounterWidth $end
+$var parameter 32 E DebounceTime $end
+$var reg 2 F Counter [1:0] $end
+$var reg 1 C dataOut $end
+$var reg 1 G stable_state $end
 $upscope $end
 $scope module debouncer3 $end
 $var wire 1 ! Clk $end
-$var wire 1 ; DataIn $end
+$var wire 1 H DataIn $end
 $var wire 1 # Reset $end
-$var wire 1 < DataOut $end
-$var parameter 32 = CounterWidth $end
-$var parameter 32 > DebounceTime $end
-$var reg 2 ? Counter [1:0] $end
-$var reg 1 < dataOut $end
-$var reg 1 @ stable_state $end
+$var wire 1 I DataOut $end
+$var parameter 32 J CounterWidth $end
+$var parameter 32 K DebounceTime $end
+$var reg 2 L Counter [1:0] $end
+$var reg 1 I dataOut $end
+$var reg 1 M stable_state $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b11 >
-b10 =
-b11 8
-b10 7
-b11 2
-b10 1
-b11 ,
-b10 +
-b11 (
-b10 '
+b11 K
+b10 J
+b11 E
+b10 D
+b11 ?
+b10 >
+b11 9
+b10 8
+b11 )
+b10 (
 $end
 #0
 $dumpvars
-x@
-bx ?
-x<
-0;
-x:
-bx 9
-x6
-05
+xM
+bx L
+xI
+0H
+xG
+bx F
+xC
+0B
+xA
+bx @
+x=
+0<
+x;
+bx :
+x7
+06
+x5
 x4
-bx 3
+x3
+x2
+x1
 x0
-0/
+x/
 x.
-bx -
+x-
+x,
+x+
 x*
-0)
+bx '
 bx &
 b0 %
 bx $
@@ -114,1048 +160,1254 @@ $end
 0!
 #2000
 0*
-0.
-b0 -
+0-
 00
-04
-b0 3
-06
-0:
-b0 9
-b0 $
+03
+07
+0;
+b0 :
+0+
+0,
+0=
+0A
+b0 @
+0.
+0/
+0C
+0G
+b0 F
+01
+02
 b0 &
-0<
-0@
-b0 ?
+0I
+0M
+b0 L
+b0 $
+b0 '
+04
+05
 1!
 #2200
 0#
 #2500
 0!
 #3000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+b1 F
+b1 @
+b1 :
 1!
 #3500
 0!
 #4000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #4500
 0!
 #5000
-b0 ?
-b0 9
-b0 3
-b0 -
+b0 L
+b0 F
+b0 @
+b0 :
 1!
 #5500
 0!
 #6000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+b1 F
+b1 L
 1!
 #6500
 0!
 #7000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+b10 F
+b10 @
+b10 :
 1!
 #7500
 0!
 #8000
-b0 -
-b0 3
-b0 9
-b0 ?
+b0 :
+b0 @
+b0 F
+b0 L
 1!
 #8200
-1)
+16
 b1 "
 b1 %
 #8500
 0!
 #9000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+b1 F
+b1 @
+b1 :
 1!
 #9500
 0!
 #10000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #10500
 0!
 #11000
-b0 ?
-b0 9
-b0 3
-b0 -
-b1 $
-b1 &
 1*
-1.
+b0 L
+b0 F
+b0 @
+b0 :
+b1 &
+17
+1;
 1!
 #11500
 0!
 #12000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+b1 $
+b1 '
+1+
+b1 @
+b1 F
+b1 L
 1!
 #12200
-0)
+06
 b0 "
 b0 %
 #12500
 0!
 #13000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+b10 F
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #13500
 0!
 #14000
-b0 -
-b0 $
-b0 &
 0*
-0.
-b0 3
-b0 9
-b0 ?
+b0 :
+b0 &
+07
+0;
+b0 @
+b0 F
+b0 L
 1!
 #14200
-1/
+1<
 b10 "
 b10 %
 #14500
 0!
 #15000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+b1 F
+b1 @
+0,
+b1 :
 1!
 #15500
 0!
 #16000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #16500
 0!
 #17000
-b0 ?
-b0 9
-b0 3
-b10 $
+1-
+b0 L
+b0 F
+b0 @
 b10 &
-10
-14
-b0 -
+1=
+1A
+b0 :
 1!
 #17500
 0!
 #18000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+1/
+b10 $
+b10 '
+1.
+b1 F
+b1 L
 1!
 #18200
-0/
+0<
 b0 "
 b0 %
 #18500
 0!
 #19000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+b10 F
+b0 $
+b0 '
+0.
+b10 @
+b10 :
 1!
 #19500
 0!
 #20000
-b0 -
-b0 3
-b0 $
+0-
+b0 :
+b0 @
 b0 &
-00
-04
-b0 9
-b0 ?
+0=
+0A
+b0 F
+b0 L
 1!
 #20200
-1)
-1/
+16
+1<
 b11 "
 b11 %
 #20500
 0!
 #21000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+b1 F
+0/
+b1 @
+b1 :
 1!
 #21500
 0!
 #22000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #22500
 0!
 #23000
-b0 ?
-b0 9
-b0 3
-10
-14
-b0 -
-b11 $
-b11 &
+1-
 1*
-1.
+b0 L
+b0 F
+b0 @
+1=
+1A
+b0 :
+b11 &
+17
+1;
 1!
 #23500
 0!
 #24000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+1+
+b1 @
+1/
+b11 $
+b11 '
+1.
+b1 F
+b1 L
 1!
 #24200
-0)
-0/
+06
+0<
 b0 "
 b0 %
 #24500
 0!
 #25000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+b10 F
+0.
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #25500
 0!
 #26000
-b0 -
 0*
-0.
-b0 3
-b0 $
+0-
+b0 :
+07
+0;
+b0 @
 b0 &
-00
-04
-b0 9
-b0 ?
+0=
+0A
+b0 F
+b0 L
 1!
 #26200
-15
+1B
 b100 "
 b100 %
 #26500
 0!
 #27000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+b1 F
+0/
+b1 @
+0,
+b1 :
 1!
 #27500
 0!
 #28000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #28500
 0!
 #29000
-b0 ?
-b0 9
-b100 $
+10
+b0 L
+b0 F
 b100 &
-16
-1:
-b0 3
-b0 -
+1C
+1G
+b0 @
+b0 :
 1!
 #29500
 0!
 #30000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+b1 F
+12
+b100 $
+b100 '
+11
+b1 L
 1!
 #30200
-05
+0B
 b0 "
 b0 %
 #30500
 0!
 #31000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+b0 $
+b0 '
+01
+b10 F
+b10 @
+b10 :
 1!
 #31500
 0!
 #32000
-b0 -
-b0 3
-b0 9
-b0 $
+00
+b0 :
+b0 @
+b0 F
 b0 &
-06
-0:
-b0 ?
+0C
+0G
+b0 L
 1!
 #32200
-1)
-15
+16
+1B
 b101 "
 b101 %
 #32500
 0!
 #33000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+02
+b1 F
+b1 @
+b1 :
 1!
 #33500
 0!
 #34000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #34500
 0!
 #35000
-b0 ?
-b0 9
-16
-1:
-b0 3
-b0 -
-b101 $
-b101 &
+10
 1*
-1.
+b0 L
+b0 F
+1C
+1G
+b0 @
+b0 :
+b101 &
+17
+1;
 1!
 #35500
 0!
 #36000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+1+
+b1 @
+b1 F
+12
+b101 $
+b101 '
+11
+b1 L
 1!
 #36200
-0)
-05
+06
+0B
 b0 "
 b0 %
 #36500
 0!
 #37000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+01
+b10 F
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #37500
 0!
 #38000
-b0 -
 0*
-0.
-b0 3
-b0 9
-b0 $
+00
+b0 :
+07
+0;
+b0 @
+b0 F
 b0 &
-06
-0:
-b0 ?
+0C
+0G
+b0 L
 1!
 #38200
-1/
-15
+1<
+1B
 b110 "
 b110 %
 #38500
 0!
 #39000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+02
+b1 F
+b1 @
+0,
+b1 :
 1!
 #39500
 0!
 #40000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #40500
 0!
 #41000
-b0 ?
-b0 9
-16
-1:
-b0 3
-b110 $
-b110 &
 10
-14
-b0 -
+1-
+b0 L
+b0 F
+1C
+1G
+b0 @
+b110 &
+1=
+1A
+b0 :
 1!
 #41500
 0!
 #42000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+1/
+1.
+b1 F
+12
+b110 $
+b110 '
+11
+b1 L
 1!
 #42200
-0/
-05
+0<
+0B
 b0 "
 b0 %
 #42500
 0!
 #43000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+01
+b10 F
+b0 $
+b0 '
+0.
+b10 @
+b10 :
 1!
 #43500
 0!
 #44000
-b0 -
-b0 3
+0-
 00
-04
-b0 9
-b0 $
+b0 :
+b0 @
+0=
+0A
+b0 F
 b0 &
-06
-0:
-b0 ?
+0C
+0G
+b0 L
 1!
 #44200
-1)
-1/
-15
+16
+1<
+1B
 b111 "
 b111 %
 #44500
 0!
 #45000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+02
+b1 F
+0/
+b1 @
+b1 :
 1!
 #45500
 0!
 #46000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #46500
 0!
 #47000
-b0 ?
-b0 9
-16
-1:
-b0 3
 10
-14
-b0 -
-b111 $
-b111 &
+1-
 1*
-1.
+b0 L
+b0 F
+1C
+1G
+b0 @
+1=
+1A
+b0 :
+b111 &
+17
+1;
 1!
 #47500
 0!
 #48000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+1+
+b1 @
+1/
+1.
+b1 F
+12
+b111 $
+b111 '
+11
+b1 L
 1!
 #48200
-0)
-0/
-05
+06
+0<
+0B
 b0 "
 b0 %
 #48500
 0!
 #49000
-b10 ?
-b10 9
-b10 3
-b10 -
+b10 L
+01
+b10 F
+0.
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #49500
 0!
 #50000
-b0 -
 0*
-0.
-b0 3
+0-
 00
-04
-b0 9
-b0 $
+b0 :
+07
+0;
+b0 @
+0=
+0A
+b0 F
 b0 &
-06
-0:
-b0 ?
+0C
+0G
+b0 L
 1!
 #50200
-1;
+1H
 b1000 "
 b1000 %
 #50500
 0!
 #51000
-b1 ?
-b1 9
-b1 3
-b1 -
+b1 L
+02
+b1 F
+0/
+b1 @
+0,
+b1 :
 1!
 #51500
 0!
 #52000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #52500
 0!
 #53000
-b0 ?
-b1000 $
+13
+b0 L
 b1000 &
-1<
-1@
-b0 9
-b0 3
-b0 -
+1I
+1M
+b0 F
+b0 @
+b0 :
 1!
 #53500
 0!
 #54000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+b1 F
+b1 L
+15
+b1000 $
+b1000 '
+14
 1!
 #54200
-0;
+0H
 b0 "
 b0 %
 #54500
 0!
 #55000
-b10 ?
-b10 9
-b10 3
-b10 -
+b0 $
+b0 '
+04
+b10 L
+b10 F
+b10 @
+b10 :
 1!
 #55500
 0!
 #56000
-b0 -
-b0 3
-b0 9
-b0 ?
-b0 $
+03
+b0 :
+b0 @
+b0 F
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #56200
-1)
-1;
+16
+1H
 b1001 "
 b1001 %
 #56500
 0!
 #57000
-b1 ?
-b1 9
-b1 3
-b1 -
+05
+b1 L
+b1 F
+b1 @
+b1 :
 1!
 #57500
 0!
 #58000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #58500
 0!
 #59000
-b0 ?
-1<
-1@
-b0 9
-b0 3
-b0 -
-b1001 $
-b1001 &
+13
 1*
-1.
+b0 L
+1I
+1M
+b0 F
+b0 @
+b0 :
+b1001 &
+17
+1;
 1!
 #59500
 0!
 #60000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+1+
+b1 @
+b1 F
+b1 L
+15
+b1001 $
+b1001 '
+14
 1!
 #60200
-0)
-0;
+06
+0H
 b0 "
 b0 %
 #60500
 0!
 #61000
-b10 ?
-b10 9
-b10 3
-b10 -
+04
+b10 L
+b10 F
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #61500
 0!
 #62000
-b0 -
 0*
-0.
-b0 3
-b0 9
-b0 ?
-b0 $
+03
+b0 :
+07
+0;
+b0 @
+b0 F
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #62200
-1/
-1;
+1<
+1H
 b1010 "
 b1010 %
 #62500
 0!
 #63000
-b1 ?
-b1 9
-b1 3
-b1 -
+05
+b1 L
+b1 F
+b1 @
+0,
+b1 :
 1!
 #63500
 0!
 #64000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #64500
 0!
 #65000
-b0 ?
-1<
-1@
-b0 9
-b0 3
-b1010 $
+13
+1-
+b0 L
+1I
+1M
+b0 F
+b0 @
 b1010 &
-10
-14
-b0 -
+1=
+1A
+b0 :
 1!
 #65500
 0!
 #66000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+1/
+1.
+b1 F
+b1 L
+15
+b1010 $
+b1010 '
+14
 1!
 #66200
-0/
-0;
+0<
+0H
 b0 "
 b0 %
 #66500
 0!
 #67000
-b10 ?
-b10 9
-b10 3
-b10 -
+04
+b10 L
+b10 F
+b0 $
+b0 '
+0.
+b10 @
+b10 :
 1!
 #67500
 0!
 #68000
-b0 -
-b0 3
-00
-04
-b0 9
-b0 ?
-b0 $
+0-
+03
+b0 :
+b0 @
+0=
+0A
+b0 F
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #68200
-1)
-1/
-1;
+16
+1<
+1H
 b1011 "
 b1011 %
 #68500
 0!
 #69000
-b1 ?
-b1 9
-b1 3
-b1 -
+05
+b1 L
+b1 F
+0/
+b1 @
+b1 :
 1!
 #69500
 0!
 #70000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #70500
 0!
 #71000
-b0 ?
-1<
-1@
-b0 9
-b0 3
-10
-14
-b0 -
-b1011 $
-b1011 &
+13
+1-
 1*
-1.
+b0 L
+1I
+1M
+b0 F
+b0 @
+1=
+1A
+b0 :
+b1011 &
+17
+1;
 1!
 #71500
 0!
 #72000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+1+
+b1 @
+1/
+1.
+b1 F
+b1 L
+15
+b1011 $
+b1011 '
+14
 1!
 #72200
-0)
-0/
-0;
+06
+0<
+0H
 b0 "
 b0 %
 #72500
 0!
 #73000
-b10 ?
-b10 9
-b10 3
-b10 -
+04
+b10 L
+b10 F
+0.
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #73500
 0!
 #74000
-b0 -
 0*
-0.
-b0 3
-00
-04
-b0 9
-b0 ?
-b0 $
+0-
+03
+b0 :
+07
+0;
+b0 @
+0=
+0A
+b0 F
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #74200
-15
-1;
+1B
+1H
 b1100 "
 b1100 %
 #74500
 0!
 #75000
-b1 ?
-b1 9
-b1 3
-b1 -
+05
+b1 L
+b1 F
+0/
+b1 @
+0,
+b1 :
 1!
 #75500
 0!
 #76000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #76500
 0!
 #77000
-b0 ?
-1<
-1@
-b0 9
-b1100 $
+13
+10
+b0 L
+1I
+1M
+b0 F
 b1100 &
-16
-1:
-b0 3
-b0 -
+1C
+1G
+b0 @
+b0 :
 1!
 #77500
 0!
 #78000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+b1 F
+12
+11
+b1 L
+15
+b1100 $
+b1100 '
+14
 1!
 #78200
-05
-0;
+0B
+0H
 b0 "
 b0 %
 #78500
 0!
 #79000
-b10 ?
-b10 9
-b10 3
-b10 -
+04
+b10 L
+b0 $
+b0 '
+01
+b10 F
+b10 @
+b10 :
 1!
 #79500
 0!
 #80000
-b0 -
-b0 3
-b0 9
-06
-0:
-b0 ?
-b0 $
+00
+03
+b0 :
+b0 @
+b0 F
+0C
+0G
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #80200
-1)
-15
-1;
+16
+1B
+1H
 b1101 "
 b1101 %
 #80500
 0!
 #81000
-b1 ?
-b1 9
-b1 3
-b1 -
+05
+b1 L
+02
+b1 F
+b1 @
+b1 :
 1!
 #81500
 0!
 #82000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #82500
 0!
 #83000
-b0 ?
-1<
-1@
-b0 9
-16
-1:
-b0 3
-b0 -
-b1101 $
-b1101 &
+13
+10
 1*
-1.
+b0 L
+1I
+1M
+b0 F
+1C
+1G
+b0 @
+b0 :
+b1101 &
+17
+1;
 1!
 #83500
 0!
 #84000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+1,
+1+
+b1 @
+b1 F
+12
+11
+b1 L
+15
+b1101 $
+b1101 '
+14
 1!
 #84200
-0)
-05
-0;
+06
+0B
+0H
 b0 "
 b0 %
 #84500
 0!
 #85000
-b10 ?
-b10 9
-b10 3
-b10 -
+04
+b10 L
+01
+b10 F
+b10 @
+b0 $
+b0 '
+0+
+b10 :
 1!
 #85500
 0!
 #86000
-b0 -
 0*
-0.
-b0 3
-b0 9
-06
-0:
-b0 ?
-b0 $
+00
+03
+b0 :
+07
+0;
+b0 @
+b0 F
+0C
+0G
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #86200
-1/
-15
-1;
+1<
+1B
+1H
 b1110 "
 b1110 %
 #86500
 0!
 #87000
-b1 ?
-b1 9
-b1 3
-b1 -
+05
+b1 L
+02
+b1 F
+b1 @
+0,
+b1 :
 1!
 #87500
 0!
 #88000
-b10 -
-b10 3
-b10 9
-b10 ?
+b10 :
+b10 @
+b10 F
+b10 L
 1!
 #88500
 0!
 #89000
-b0 ?
-1<
-1@
-b0 9
-16
-1:
-b0 3
-b1110 $
-b1110 &
+13
 10
-14
-b0 -
+1-
+b0 L
+1I
+1M
+b0 F
+1C
+1G
+b0 @
+b1110 &
+1=
+1A
+b0 :
 1!
 #89500
 0!
 #90000
-b1 -
-b1 3
-b1 9
-b1 ?
+b1 :
+b1 @
+1/
+1.
+b1 F
+12
+11
+b1 L
+15
+b1110 $
+b1110 '
+14
 1!
 #90200
-0/
-05
-0;
+0<
+0B
+0H
 b0 "
 b0 %
 #90500
 0!
 #91000
-b10 ?
-b10 9
-b10 3
-b10 -
+04
+b10 L
+01
+b10 F
+b0 $
+b0 '
+0.
+b10 @
+b10 :
 1!
 #91500
 0!
 #92000
-b0 -
-b0 3
+0-
 00
-04
-b0 9
-06
-0:
-b0 ?
-b0 $
+03
+b0 :
+b0 @
+0=
+0A
+b0 F
+0C
+0G
+b0 L
 b0 &
-0<
-0@
+0I
+0M
 1!
 #92201

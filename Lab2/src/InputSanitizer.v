@@ -21,11 +21,21 @@ module InputSanitizer #(
 );
   // Add your code here
   // Debouncer instances for each bit of DataIn
+
+  wire [3:0] dataOut;
+
   Debouncer #(
       .CounterWidth(CounterWidth),
       .DebounceTime(DebounceTime)
   ) debouncer0 (
       .DataIn(DataIn[0]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(dataOut[0])
+  );
+
+  SinglePulser SinglePuler0 (
+      .DataIn(dataOut[0]),
       .Clk(Clk),
       .Reset(Reset),
       .DataOut(DataOut[0])
@@ -38,6 +48,13 @@ module InputSanitizer #(
       .DataIn(DataIn[1]),
       .Clk(Clk),
       .Reset(Reset),
+      .DataOut(dataOut[1])
+  );
+
+   SinglePulser SinglePuler1 (
+      .DataIn(dataOut[1]),
+      .Clk(Clk),
+      .Reset(Reset),
       .DataOut(DataOut[1])
   );
 
@@ -48,6 +65,13 @@ module InputSanitizer #(
       .DataIn(DataIn[2]),
       .Clk(Clk),
       .Reset(Reset),
+      .DataOut(dataOut[2])
+  );
+
+   SinglePulser SinglePuler2 (
+      .DataIn(dataOut[2]),
+      .Clk(Clk),
+      .Reset(Reset),
       .DataOut(DataOut[2])
   );
 
@@ -56,6 +80,13 @@ module InputSanitizer #(
       .DebounceTime(DebounceTime)
   ) debouncer3 (
       .DataIn(DataIn[3]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(dataOut[3])
+  );
+
+  SinglePulser SinglePuler3 (
+      .DataIn(dataOut[3]),
       .Clk(Clk),
       .Reset(Reset),
       .DataOut(DataOut[3])
