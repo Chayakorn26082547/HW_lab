@@ -18,7 +18,7 @@ module FourBCD (
 );
   // Add your code here
   // Internal signals for carry propagation between digits;
-  reg carry1, carry2, carry3, carry4;
+  wire carry1, carry2, carry3, carry4;
 
   // Instantiate 4 SingleBCD counters for each digit
   SingleBCD digit0 (
