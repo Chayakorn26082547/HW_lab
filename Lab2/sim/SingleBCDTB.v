@@ -33,6 +33,8 @@ module SingleBCDTB ();
   integer TestCaseNo = 0;
   integer i;
   integer j;
+  reg [3:0] pre_DataOut;
+  reg pre_Cout;
 
   // task to check the output
   task check_output;
@@ -42,7 +44,7 @@ module SingleBCDTB ();
     begin
       if (DataOut !== expected_DataOut || Cout !== expected_Cout) begin
         $error("ERROR: TestCaseNo %0d | DataOut = %b (Expected: %b) | Cout = %b (Expected: %b)",
-               TestCaseNo, $time, DataOut, expected_DataOut, Cout, expected_Cout);
+               TestCaseNo, DataOut, expected_DataOut, Cout, expected_Cout);
         flag = 1;
       end
     end
@@ -62,40 +64,44 @@ module SingleBCDTB ();
     Reset = 1;
     check_output(0, 0, 0);
     // Insert test cases here
-    Clk = 0;
-    Reset = 0;
-    Trigger = 0;
-    Cin = 0;
-    #(CLK_PERIOD + 0.1);
     
     //Check reset functionality
     Reset = 1;
     #(CLK_PERIOD);
     Reset = 0;
     #(CLK_PERIOD);
-    check_output(TestCaseNo++, 4'b000, 1'b0);
+    check_output(1, 4'b0000, 1'b0);
 
     //Check increment functionality
     Trigger = 1;
     Cin = 0;
+    TestCaseNo = 2;
     for (i = 0; i < 5; i = i + 1) begin
       Reset = 1;
       #(CLK_PERIOD);
-      check_output(TestCaseNo++, 4'b000, 1'b0);
+      check_output(TestCaseNo, 4'b0000, 1'b0);
+      TestCaseNo = TestCaseNo + 1;
       Reset = 0;
       for (j = 0; j < 29; j = j + 1) begin
+        pre_DataOut = (j + 1)%10;
+        pre_Cout = (j + 1)%10 == 0  && (j+1) != 0;
+        check_output(TestCaseNo, DataOut, pre_Cout);
+        TestCaseNo = TestCaseNo + 1;
         #(CLK_PERIOD);
-        check_output(TestCaseNo++, (j+1)%10, ((i+1) % 10 == 0 and (i+1) != 0));
+        check_output(TestCaseNo, pre_DataOut, Cout);
+        TestCaseNo = TestCaseNo + 1;
       end
     end
 
     Reset = 1;
     #(CLK_PERIOD);
     Reset = 0;
-    //Carry in functionality
+
+    //Carry in and Trigger at same time
     Cin = 1'b1;
     #(CLK_PERIOD);
-    check_output(TestCaseNo++, 4'b0001, 1'b0);
+    check_output(TestCaseNo, 4'b0010, 1'b0);
+    TestCaseNo = TestCaseNo + 1;
 
     
     if (flag == 0) begin

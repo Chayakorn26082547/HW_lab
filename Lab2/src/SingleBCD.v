@@ -19,9 +19,9 @@ module SingleBCD (
     output wire       Cout
 );
   // Add your code here
-  reg [3:0] dataOut;
+  reg [3:0] dataOut = 4'b0000;
   assign DataOut = dataOut;
-  reg cout;
+  reg cout = 0;
   assign Cout = cout;
 
   reg [3:0] increment;
