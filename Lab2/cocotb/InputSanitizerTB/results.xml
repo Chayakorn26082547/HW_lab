@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1737393377" />
-    <testcase name="InputSanitizerTB" classname="TB" file="D:\HW_lab\lab\Lab2\cocotb\InputSanitizerTB\TB.py" lineno="5" time="0.006001949310302734" sim_time_ns="92.201" ratio_time="15361.84250035751" />
+    <property name="random_seed" value="1737442197" />
+    <testcase name="InputSanitizerTB" classname="TB" file="D:\HW_lab\lab\Lab2\cocotb\InputSanitizerTB\TB.py" lineno="5" time="0.016771554946899414" sim_time_ns="92.201" ratio_time="5497.462834657757" />
   </testsuite>
 </testsuites>

@@ -26,7 +26,7 @@ module SingleBCD (
 
   reg [3:0] increment;
   always @(*) begin
-    increment = (Trigger & ~Reset) + (Cin & ~Reset);
+    increment = (Trigger & ~Reset) + (Trigger & Cin & ~Reset);
     if (dataOut + increment > 4'b1001) begin
       cout = 1;
     end

@@ -32,7 +32,7 @@ async def FourBCDTB(dut):
         await Timer(1, units="ns")
         sum = (sum + 1111)%10000
         BCDSum = IntToBCD(sum)
-        print(f"dut.DataOut.value = {dut.DataOut.value}, sum = {sum}, BCDSum = {BCDSum}") 
+        #print(f"dut.DataOut.value = {dut.DataOut.value}, sum = {sum}, BCDSum = {BCDSum}") 
         assert dut.DataOut.value == BCDSum
 
     dut._log.info("Test Complete")

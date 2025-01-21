@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1737396222" />
-    <testcase name="SinglePulserTB" classname="TB" file="D:\HW_lab\lab\Lab2\cocotb\SinglePulserTB\TB.py" lineno="5" time="0.020999908447265625" sim_time_ns="330.401" ratio_time="15733.449544777475" />
-  </testsuite>
-</testsuites>
