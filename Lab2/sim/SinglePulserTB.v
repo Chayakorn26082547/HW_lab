@@ -53,63 +53,77 @@ module SinglePulserTB ();
     Clk = 0;
     #(CLK_PERIOD + 0.1);
     Reset = 1;
+    #(CLK_PERIOD);
     check_output(0, 0);
+    Reset = 0;
 
-    Clk = 0;
-    Reset = 1;
+    // Test DataIn = 0
     DataIn = 0;
     #(CLK_PERIOD);
+    check_output(1, 0);
 
+    //Test Rising edge
+    DataIn = 1;
+    #(CLK_PERIOD);
+    check_output(2, 1);
+    #(CLK_PERIOD);
+    check_output(3, 0);
+
+    DataIn = 0;
+    #(CLK_PERIOD);
+    check_output(4, 0);
+
+    DataIn = 1;
+    #(CLK_PERIOD);
+    check_output(5, 1);
+    #(CLK_PERIOD);
+    check_output(6, 0);
+
+    DataIn = 0;
+    #(CLK_PERIOD);
+    check_output(7, 0);
+
+    //Test Rest when DataIn = 1
+    DataIn = 1;
+    Reset = 1;
+    #(CLK_PERIOD);
+    check_output(8, 0);
     Reset = 0;
     #(CLK_PERIOD);
+    check_output(9, 1);
 
-    // Test Case 1: No pulse when DataIn is 0
+    //Test For Loop
     DataIn = 0;
     #(CLK_PERIOD);
-    check_output(TestCaseNo++, 0);
-    // Test Case 2: Generate pulse when DataIn rises from 0 to 1
-    DataIn = 1;
-    #(CLK_PERIOD);
-    check_output(TestCaseNo++, 1);
-    // Test Case 3: No pulse when DataIn remains 1
-    #(CLK_PERIOD);
-    check_output(TestCaseNo++, 0);
-    // Test Case 4: Generate another pulse on a new rising edge
-    DataIn = 0;
-    #(CLK_PERIOD);
-    check_output(TestCaseNo++, 0);
-    DataIn = 1;
-    #(CLK_PERIOD);
-    check_output(TestCaseNo++, 1);
-    #(CLK_PERIOD);
-    check_output(TestCaseNo++, 0);
+    check_output(10, 0);
 
-    //Test Case 5: Reset signal test
-    Reset = 1;
-    DataIn = 1;
-    #(CLK_PERIOD);
-    Reset = 0;
-    #(CLK_PERIOD);
-    check_output(TestCaseNo++, 0);
-
-    //Test Case 6: for loop test
-    for (j = 0; j < 10; j = j + 1) begin
+    TestCaseNo = 11;
+    for (j = 0; j < 5; j = j + 1) begin
       for (i = 0; i < 10; i = i + 1) begin
-        DataIn = 0;
-        #(CLK_PERIOD);
-        check_output(TestCaseNo++, 0);
         DataIn = 1;
         #(CLK_PERIOD);
-        check_output(TestCaseNo++, 1);
+        check_output(TestCaseNo, 1);
+        TestCaseNo = TestCaseNo + 1;
+
         #(CLK_PERIOD);
-        check_output(TestCaseNo++, 0);
+        check_output(TestCaseNo, 0);
+        TestCaseNo = TestCaseNo + 1;
+
+        DataIn = 0;
+        #(CLK_PERIOD);
+        check_output(TestCaseNo, 0);
+        TestCaseNo = TestCaseNo + 1;
       end
       Reset = 1;
       #(CLK_PERIOD);
+      check_output(TestCaseNo, 0);
+      TestCaseNo = TestCaseNo + 1;
       Reset = 0;
       #(CLK_PERIOD);
-      check_output(TestCaseNo++, 0);
-  end
+      check_output(TestCaseNo, 0);
+      TestCaseNo = TestCaseNo + 1;
+
+    end
 
 
     if (flag == 0) begin

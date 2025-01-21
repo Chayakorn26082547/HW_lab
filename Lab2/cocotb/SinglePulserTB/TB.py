@@ -16,12 +16,6 @@ async def SinglePulserTB(dut):
     assert dut.DataOut.value == 0
     # Insert your testcase here
     
-    # Reset the DUT
-    dut.Reset.value = 1
-    dut.DataIn.value = 0
-    await Timer(1.2, units="ns")  # Wait for 2 clock cycles
-    dut.Reset.value = 0
-    
     # Test Case 1: DataIn is 0, expect no pulse
     dut.DataIn.value = 0
     await Timer(1, units="ns")
