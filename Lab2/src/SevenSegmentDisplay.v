@@ -20,7 +20,28 @@ module SevenSegmentDisplay #(
     output wire [7:0] Segments,
     output wire [3:0] AN
 );
+  wire [1:0] selector;
+  wire [3:0] dataOut;
   // Add your code here
+  Multiplexer Multi(
+    .DataIn(DataIn),
+    .Selector(selector),
+    .DataOut(dataOut)
+  );
 
+  SevenSegmentController #(
+    .ControllerClockCycle(ControllerClockCycle),
+    .ControllerCounterWidth(ControllerCounterWidth)
+  ) SevenControl(
+    .AN(AN),
+    .Reset(Reset),
+    .Clk(Clk),
+    .Selector(selector)
+  );
+
+  SevenSegmentDecoder SevenDecode(
+    .DataIn(dataOut),
+    .Segments(Segments)
+  )
   // End of your code
 endmodule
