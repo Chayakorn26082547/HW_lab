@@ -42,6 +42,6 @@ module SevenSegmentDisplay #(
   SevenSegmentDecoder SevenDecode(
     .DataIn(dataOut),
     .Segments(Segments)
-  )
+  );
   // End of your code
 endmodule

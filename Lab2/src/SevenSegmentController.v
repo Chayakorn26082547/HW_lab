@@ -20,6 +20,27 @@ module SevenSegmentController #(
 );
   reg [ControllerCounterWidth-1:0] Counter = 0;
   // Add your code here
+  reg [1:0] selector = 0;
+  reg [3:0] an = 4'b1111;
 
+  assign AN = an;
+  assign Selector = selector;
+  
+  always @(posedge Clk) begin
+    if (Reset) begin
+      an <= 4'b1111;
+      selector <= 0;
+      Counter <= 0;
+    end else begin 
+      if (Counter >= ControllerClockCycle - 1) begin
+        selector <= (selector == 2'b11) ? 2'b00 : selector + 1;
+        an <= {an[2:0], an[3]};
+        Counter <= 0;
+      end else begin
+        Counter <= Counter + 1;
+        an <= (an == 4'b1111) ? 4'b1110 : an;
+      end
+    end
+  end
   // End of your code
 endmodule

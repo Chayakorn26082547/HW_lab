@@ -1,0 +1,49 @@
+$date
+	Mon Jan 27 19:50:52 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module SevenSegmentControllerTB $end
+$var wire 1 ! Clk $end
+$var wire 1 " Reset $end
+$var wire 2 # Selector [1:0] $end
+$var wire 4 $ AN [3:0] $end
+$scope module SevenSegmentControllerInst $end
+$var wire 4 % AN [3:0] $end
+$var wire 1 ! Clk $end
+$var wire 1 " Reset $end
+$var wire 2 & Selector [1:0] $end
+$var parameter 32 ' ControllerClockCycle $end
+$var parameter 32 ( ControllerCounterWidth $end
+$var reg 3 ) Counter [2:0] $end
+$var reg 4 * an [3:0] $end
+$var reg 2 + selector [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 (
+b100 '
+$end
+#0
+$dumpvars
+b0 +
+b1111 *
+b0 )
+b0 &
+b1111 %
+b1111 $
+b0 #
+1"
+1!
+$end
+#500
+0!
+#1000
+1!
+#1201
