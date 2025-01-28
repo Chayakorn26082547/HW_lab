@@ -1,15 +1,3 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Create Date: 01/01/2025 02:12:15 AM
-// Design Name: BCD_Counter
-// Module Name: InputSanitizer
-// Project Name: BCD_Counter
-// Target Devices: Basys3
-// Tool Versions: 2023.2
-// Description: Module to sanitize input from buttons
-//////////////////////////////////////////////////////////////////////////////////
-
-
 module InputSanitizer #(
     parameter CounterWidth = 1,
     parameter DebounceTime = 1
@@ -19,77 +7,65 @@ module InputSanitizer #(
     input  wire       Reset,
     output wire [3:0] DataOut
 );
-  // Add your code here
-  // Debouncer instances for each bit of DataIn
+  // Internal wires for debounced output
+  wire [3:0] debounced;
 
-  wire [3:0] dataOut;
-
-  Debouncer #(
-      .CounterWidth(CounterWidth),
-      .DebounceTime(DebounceTime)
-  ) debouncer0 (
+  // Debouncer instances
+  Debouncer #(.CounterWidth(CounterWidth), .DebounceTime(DebounceTime)) debouncer0 (
       .DataIn(DataIn[0]),
       .Clk(Clk),
       .Reset(Reset),
-      .DataOut(dataOut[0])
+      .DataOut(debounced[0])
   );
 
-  SinglePulser SinglePuler0 (
-      .DataIn(dataOut[0]),
+  Debouncer #(.CounterWidth(CounterWidth), .DebounceTime(DebounceTime)) debouncer1 (
+      .DataIn(DataIn[1]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(debounced[1])
+  );
+
+  Debouncer #(.CounterWidth(CounterWidth), .DebounceTime(DebounceTime)) debouncer2 (
+      .DataIn(DataIn[2]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(debounced[2])
+  );
+
+  Debouncer #(.CounterWidth(CounterWidth), .DebounceTime(DebounceTime)) debouncer3 (
+      .DataIn(DataIn[3]),
+      .Clk(Clk),
+      .Reset(Reset),
+      .DataOut(debounced[3])
+  );
+
+  // SinglePulser instances
+  SinglePulser singlePulser0 (
+      .DataIn(debounced[0]),
       .Clk(Clk),
       .Reset(Reset),
       .DataOut(DataOut[0])
   );
 
-  Debouncer #(
-      .CounterWidth(CounterWidth),
-      .DebounceTime(DebounceTime)
-  ) debouncer1 (
-      .DataIn(DataIn[1]),
-      .Clk(Clk),
-      .Reset(Reset),
-      .DataOut(dataOut[1])
-  );
-
-   SinglePulser SinglePuler1 (
-      .DataIn(dataOut[1]),
+  SinglePulser singlePulser1 (
+      .DataIn(debounced[1]),
       .Clk(Clk),
       .Reset(Reset),
       .DataOut(DataOut[1])
   );
 
-  Debouncer #(
-      .CounterWidth(CounterWidth),
-      .DebounceTime(DebounceTime)
-  ) debouncer2 (
-      .DataIn(DataIn[2]),
-      .Clk(Clk),
-      .Reset(Reset),
-      .DataOut(dataOut[2])
-  );
-
-   SinglePulser SinglePuler2 (
-      .DataIn(dataOut[2]),
+  SinglePulser singlePulser2 (
+      .DataIn(debounced[2]),
       .Clk(Clk),
       .Reset(Reset),
       .DataOut(DataOut[2])
   );
 
-  Debouncer #(
-      .CounterWidth(CounterWidth),
-      .DebounceTime(DebounceTime)
-  ) debouncer3 (
-      .DataIn(DataIn[3]),
-      .Clk(Clk),
-      .Reset(Reset),
-      .DataOut(dataOut[3])
-  );
-
-  SinglePulser SinglePuler3 (
-      .DataIn(dataOut[3]),
+  SinglePulser singlePulser3 (
+      .DataIn(debounced[3]),
       .Clk(Clk),
       .Reset(Reset),
       .DataOut(DataOut[3])
   );
-  // End of your code
+
 endmodule

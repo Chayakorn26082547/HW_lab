@@ -8,76 +8,71 @@
 :vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
 :vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
-S_0000023f42f0c420 .scope package, "$unit" "$unit" 2 1;
+S_000001d14821bdf0 .scope package, "$unit" "$unit" 2 1;
  .timescale -9 -12;
-S_0000023f42f56c20 .scope module, "DebouncerTB" "DebouncerTB" 3 13;
- .timescale -9 -12;
-    .port_info 0 /INPUT 1 "DataIn";
-    .port_info 1 /INPUT 1 "Clk";
-    .port_info 2 /INPUT 1 "Reset";
-    .port_info 3 /OUTPUT 1 "DataOut";
-o0000023f42f58fd8 .functor BUFZ 1, C4<z>; HiZ drive
-v0000023f42f0c920_0 .net "Clk", 0 0, o0000023f42f58fd8;  0 drivers
-o0000023f42f59038 .functor BUFZ 1, C4<z>; HiZ drive
-v0000023f42f0c9c0_0 .net "DataIn", 0 0, o0000023f42f59038;  0 drivers
-v0000023f42f0ca60_0 .net "DataOut", 0 0, L_0000023f42f23bf0;  1 drivers
-o0000023f42f59098 .functor BUFZ 1, C4<z>; HiZ drive
-v0000023f42f0cb00_0 .net "Reset", 0 0, o0000023f42f59098;  0 drivers
-S_0000023f42f56db0 .scope module, "DebouncerInst" "Debouncer" 3 22, 4 13 0, S_0000023f42f56c20;
+S_000001d148506a20 .scope module, "DebouncerTB" "DebouncerTB" 3 13;
  .timescale -9 -12;
     .port_info 0 /INPUT 1 "DataIn";
     .port_info 1 /INPUT 1 "Clk";
     .port_info 2 /INPUT 1 "Reset";
     .port_info 3 /OUTPUT 1 "DataOut";
-P_0000023f42f23d10 .param/l "CounterWidth" 0 4 14, +C4<00000000000000000000000000000010>;
-P_0000023f42f23d48 .param/l "DebounceTime" 0 4 15, +C4<00000000000000000000000000000011>;
-L_0000023f42f23bf0 .functor BUFZ 1, v0000023f42f0c7e0_0, C4<0>, C4<0>, C4<0>;
-v0000023f42f23aa0_0 .net "Clk", 0 0, o0000023f42f58fd8;  alias, 0 drivers
-v0000023f42f238b0_0 .var "Counter", 1 0;
-v0000023f42f56f40_0 .net "DataIn", 0 0, o0000023f42f59038;  alias, 0 drivers
-v0000023f42f56fe0_0 .net "DataOut", 0 0, L_0000023f42f23bf0;  alias, 1 drivers
-v0000023f42f0c740_0 .net "Reset", 0 0, o0000023f42f59098;  alias, 0 drivers
-v0000023f42f0c7e0_0 .var "dataOut", 0 0;
-v0000023f42f0c880_0 .var "stable_state", 0 0;
-E_0000023f42f45960 .event posedge, v0000023f42f23aa0_0;
-    .scope S_0000023f42f56db0;
+o000001d148508fb8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d1485033c0_0 .net "Clk", 0 0, o000001d148508fb8;  0 drivers
+o000001d148509018 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d148503460_0 .net "DataIn", 0 0, o000001d148509018;  0 drivers
+v000001d148503500_0 .net "DataOut", 0 0, L_000001d1484d3b60;  1 drivers
+o000001d148509078 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d148503db0_0 .net "Reset", 0 0, o000001d148509078;  0 drivers
+S_000001d148506bb0 .scope module, "DebouncerInst" "Debouncer" 3 22, 4 13 0, S_000001d148506a20;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "DataIn";
+    .port_info 1 /INPUT 1 "Clk";
+    .port_info 2 /INPUT 1 "Reset";
+    .port_info 3 /OUTPUT 1 "DataOut";
+P_000001d1484d3c80 .param/l "CounterWidth" 0 4 14, +C4<00000000000000000000000000000010>;
+P_000001d1484d3cb8 .param/l "DebounceTime" 0 4 15, +C4<00000000000000000000000000000011>;
+L_000001d1484d3b60 .functor BUFZ 1, v000001d148503320_0, C4<0>, C4<0>, C4<0>;
+v000001d1484d3a10_0 .net "Clk", 0 0, o000001d148508fb8;  alias, 0 drivers
+v000001d1484d3820_0 .var "Counter", 1 0;
+v000001d14821cd20_0 .net "DataIn", 0 0, o000001d148509018;  alias, 0 drivers
+v000001d148506d40_0 .net "DataOut", 0 0, L_000001d1484d3b60;  alias, 1 drivers
+v000001d148506de0_0 .net "Reset", 0 0, o000001d148509078;  alias, 0 drivers
+v000001d148503320_0 .var "dataOut", 0 0;
+E_000001d1484f52d0 .event posedge, v000001d1484d3a10_0;
+    .scope S_000001d148506bb0;
 T_0 ;
-    %wait E_0000023f42f45960;
-    %load/vec4 v0000023f42f0c740_0;
+    %wait E_000001d1484f52d0;
+    %load/vec4 v000001d148506de0_0;
     %flag_set/vec4 8;
     %jmp/0xz  T_0.0, 8;
     %pushi/vec4 0, 0, 2;
-    %assign/vec4 v0000023f42f238b0_0, 0;
+    %assign/vec4 v000001d1484d3820_0, 0;
     %pushi/vec4 0, 0, 1;
-    %assign/vec4 v0000023f42f0c880_0, 0;
-    %pushi/vec4 0, 0, 1;
-    %assign/vec4 v0000023f42f0c7e0_0, 0;
+    %assign/vec4 v000001d148503320_0, 0;
     %jmp T_0.1;
 T_0.0 ;
-    %load/vec4 v0000023f42f238b0_0;
+    %load/vec4 v000001d1484d3820_0;
     %pad/u 32;
     %cmpi/u 2, 0, 32;
     %flag_inv 5; GE is !LT
     %jmp/0xz  T_0.2, 5;
-    %load/vec4 v0000023f42f56f40_0;
-    %assign/vec4 v0000023f42f0c880_0, 0;
-    %load/vec4 v0000023f42f56f40_0;
-    %assign/vec4 v0000023f42f0c7e0_0, 0;
+    %load/vec4 v000001d14821cd20_0;
+    %assign/vec4 v000001d148503320_0, 0;
     %pushi/vec4 0, 0, 2;
-    %assign/vec4 v0000023f42f238b0_0, 0;
+    %assign/vec4 v000001d1484d3820_0, 0;
     %jmp T_0.3;
 T_0.2 ;
-    %load/vec4 v0000023f42f238b0_0;
+    %load/vec4 v000001d1484d3820_0;
     %addi 1, 0, 2;
-    %assign/vec4 v0000023f42f238b0_0, 0;
+    %assign/vec4 v000001d1484d3820_0, 0;
 T_0.3 ;
 T_0.1 ;
     %jmp T_0;
     .thread T_0;
-    .scope S_0000023f42f56c20;
+    .scope S_000001d148506a20;
 T_1 ;
     %vpi_call/w 3 31 "$dumpfile", "waveform.vcd" {0 0 0};
-    %vpi_call/w 3 32 "$dumpvars", 32'sb00000000000000000000000000000000, S_0000023f42f56c20 {0 0 0};
+    %vpi_call/w 3 32 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001d148506a20 {0 0 0};
     %end;
     .thread T_1;
 # The file index is used to find the file name in the following table.

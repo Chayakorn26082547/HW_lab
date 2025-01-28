@@ -1,5 +1,5 @@
 $date
-	Tue Jan 21 13:40:32 2025
+	Mon Jan 27 23:33:20 2025
 $end
 $version
 	Icarus Verilog
@@ -21,7 +21,6 @@ $var parameter 32 % CounterWidth $end
 $var parameter 32 & DebounceTime $end
 $var reg 2 ' Counter [1:0] $end
 $var reg 1 ( dataOut $end
-$var reg 1 ) stable_state $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -32,7 +31,6 @@ b10 %
 $end
 #0
 $dumpvars
-x)
 x(
 bx '
 x$
@@ -51,7 +49,6 @@ $end
 #2000
 0$
 0(
-0)
 b0 '
 1!
 #2200
@@ -73,7 +70,6 @@ b10 '
 b0 '
 1$
 1(
-1)
 1!
 #5200
 0"
@@ -93,7 +89,6 @@ b10 '
 b0 '
 0$
 0(
-0)
 1!
 #8200
 1"
@@ -113,7 +108,6 @@ b10 '
 b0 '
 1$
 1(
-1)
 1!
 #11500
 0!

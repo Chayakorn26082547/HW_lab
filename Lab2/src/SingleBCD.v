@@ -21,24 +21,13 @@ module SingleBCD (
   // Add your code here
   reg [3:0] dataOut = 4'b0000;
   assign DataOut = dataOut;
-  reg cout = 0;
-  assign Cout = cout;
-
-  reg [3:0] increment;
-  always @(*) begin
-    increment = (Trigger & ~Reset) + (Trigger & Cin & ~Reset);
-    if (dataOut + increment > 4'b1001) begin
-      cout = 1;
-    end
-  end
+  assign Cout = (dataOut + (Trigger & ~Reset) + (Cin & ~Reset)) > 4'b1001;
 
   always @(posedge Clk) begin
     if (Reset) begin
       dataOut <= 4'b0000;
-      cout <= 0;
     end else begin
-      dataOut <= (dataOut + increment)%10;
-      cout <= 0;
+      dataOut <= (dataOut + (Trigger & ~Reset) + (Cin & ~Reset))%10;
     end
   end
   // End of your code
