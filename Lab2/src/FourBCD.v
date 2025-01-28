@@ -31,7 +31,7 @@ module FourBCD (
   );
 
   SingleBCD digit1 (
-      .Trigger(Trigger[1] | carry1), // Trigger for digit 1 or carry-in from digit 0
+      .Trigger(Trigger[1]), // Trigger for digit 1 or carry-in from digit 0
       .Clk(Clk),                           // System clock
       .Reset(Reset),                       // Reset signal
       .Cin(carry1),                  // Carry-in from digit 0
@@ -40,7 +40,7 @@ module FourBCD (
   );
 
   SingleBCD digit2 (
-      .Trigger(Trigger[2] | carry2), // Trigger for digit 2 or carry-in from digit 1
+      .Trigger(Trigger[2]), // Trigger for digit 2 or carry-in from digit 1
       .Clk(Clk),                           // System clock
       .Reset(Reset),                       // Reset signal
       .Cin(carry2),                  // Carry-in from digit 1
@@ -49,7 +49,7 @@ module FourBCD (
   );
 
   SingleBCD digit3 (
-      .Trigger(Trigger[3] | carry3), // Trigger for digit 3 or carry-in from digit 2
+      .Trigger(Trigger[3]), // Trigger for digit 3 or carry-in from digit 2
       .Clk(Clk),                           // System clock
       .Reset(Reset),                       // Reset signal
       .Cin(carry3),                  // Carry-in from digit 2
