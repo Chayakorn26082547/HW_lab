@@ -1,0 +1,86 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_00000241b6c034b0 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_00000241b6c03640 .scope module, "RAMUnit" "RAMUnit" 3 17;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "Clk";
+    .port_info 1 /INPUT 1 "Reset";
+    .port_info 2 /INPUT 1 "WriteEnable";
+    .port_info 3 /INPUT 1 "RamEnable";
+    .port_info 4 /INPUT 8 "Address";
+    .port_info 5 /INPUT 8 "DataIn";
+    .port_info 6 /OUTPUT 8 "DataOut";
+L_00000241b6bea560 .functor BUFZ 8, v00000241b6c334c0_0, C4<00000000>, C4<00000000>, C4<00000000>;
+o00000241b6c38fa8 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000241b6c03b10_0 .net "Address", 7 0, o00000241b6c38fa8;  0 drivers
+o00000241b6c38fd8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000241b6c037d0_0 .net "Clk", 0 0, o00000241b6c38fd8;  0 drivers
+o00000241b6c39008 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000241b6c03870_0 .net "DataIn", 7 0, o00000241b6c39008;  0 drivers
+v00000241b6becb90_0 .net "DataOut", 7 0, L_00000241b6bea560;  1 drivers
+o00000241b6c39068 .functor BUFZ 1, C4<z>; HiZ drive
+v00000241b6becc30_0 .net "RamEnable", 0 0, o00000241b6c39068;  0 drivers
+o00000241b6c39098 .functor BUFZ 1, C4<z>; HiZ drive
+v00000241b6c33380_0 .net "Reset", 0 0, o00000241b6c39098;  0 drivers
+o00000241b6c390c8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000241b6c33420_0 .net "WriteEnable", 0 0, o00000241b6c390c8;  0 drivers
+v00000241b6c334c0_0 .var "dataOutReg", 7 0;
+v00000241b6c33560 .array "mem", 0 255, 7 0;
+E_00000241b6c355b0 .event posedge, v00000241b6c33380_0, v00000241b6c037d0_0;
+    .scope S_00000241b6c03640;
+T_0 ;
+    %wait E_00000241b6c355b0;
+    %load/vec4 v00000241b6c33380_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v00000241b6c334c0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v00000241b6becc30_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v00000241b6c33420_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.4, 8;
+    %load/vec4 v00000241b6c03870_0;
+    %load/vec4 v00000241b6c03b10_0;
+    %pad/u 10;
+    %ix/vec4 3;
+    %ix/load 4, 0, 0; Constant delay
+    %assign/vec4/a/d v00000241b6c33560, 0, 4;
+    %load/vec4 v00000241b6c03870_0;
+    %assign/vec4 v00000241b6c334c0_0, 0;
+    %jmp T_0.5;
+T_0.4 ;
+    %load/vec4 v00000241b6c03b10_0;
+    %pad/u 10;
+    %ix/vec4 4;
+    %load/vec4a v00000241b6c33560, 4;
+    %assign/vec4 v00000241b6c334c0_0, 0;
+T_0.5 ;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00000241b6c03640;
+T_1 ;
+    %vpi_call/w 3 55 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 3 56 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000241b6c03640 {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "D:/HW_lab/lab/Lab4/Exercise2/cocotb/RAMUnitTB/../../src/RAMUnit.v";
