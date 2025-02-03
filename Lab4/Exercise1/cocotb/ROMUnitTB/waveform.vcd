@@ -1,5 +1,5 @@
 $date
-	Mon Feb 03 17:19:25 2025
+	Mon Feb 03 18:18:37 2025
 $end
 $version
 	Icarus Verilog
@@ -13,7 +13,6 @@ $var wire 1 " Clk $end
 $var wire 16 # DataOut [15:0] $end
 $var wire 1 $ Reset $end
 $var reg 16 % dataReg [15:0] $end
-$var integer 32 & i [31:0] $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
@@ -21,7 +20,6 @@ $dumpall
 $end
 #0
 $dumpvars
-b1000000 &
 b0 %
 1$
 b0 #

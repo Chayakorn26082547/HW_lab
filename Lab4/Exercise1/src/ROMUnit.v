@@ -18,24 +18,21 @@ module ROMUnit (
     input  wire       Reset,    // Active-high reset
     output wire [15:0] DataOut  // 16-bit output (e.g. two ASCII characters)
 );
-  reg [7:0] mem [63:0];
-  integer i;
-  initial begin
-    for (i = 0; i < 64; i = i + 1) begin
-      mem[i] = ( (i / 10) * 16 ) + (i % 10);  // Packed BCD
+    reg [15:0] mem [63:0];
+    
+    initial begin
+        $readmemb("D:/HW_lab/lab/Lab4/Exercise1/src/rom.mem", mem);
     end
-  end
+    
+    reg [15:0] dataReg;
+    assign DataOut = dataReg;
 
-  reg [15:0] dataReg;
-  assign DataOut = dataReg;
-
-  always @(posedge Clk or posedge Reset) begin
-    if (Reset)
-      dataReg <= 8'h00;
-    else
-      dataReg <= mem[Address];
-  end
-
+    always @(posedge Clk) begin
+        if (Reset)
+            dataReg <= 16'b0;
+        else
+            dataReg <= mem[Address];
+    end
 
 `ifdef COCOTB_SIM
   // For simulation purposes, dump waveform data to a VCD file.
