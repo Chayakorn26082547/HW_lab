@@ -19,6 +19,34 @@ module StackUnit (
     output wire [7:0] StackCounter
 );
   // Add your code here
-  
+  wire ramWrite, ramEnable;
+  wire [7:0] ramAddress, ramDatain;
+
+  StackController stackcontrol(
+    .Clk(Clk),
+    .Reset(Reset),
+    .Push(Push),
+    .Pop(Pop),
+    .DataIn(DataIn),
+    .RAMDataOut(ramDataout),
+    .StackCounter(StackCounter),
+    .StackValue(StackValue),
+    .RAMWriteEnable(ramWrite),
+    .RAMEnable(ramEnable),
+    .RAMAddress(ramAddress),
+    .RAMDataIn(ramDatain)
+  );
+
+  wire [7:0] ramDataout;
+
+  RAMUnit ram(
+    .Reset(Reset),
+    .Clk(Clk),
+    .WriteEnable(ramWrite),
+    .RamEnable(ramEnable),
+    .Address(ramAddress),
+    .DataIn(ramDatain),
+    .DataOut(ramDataout)
+  );
   // End of your code
 endmodule

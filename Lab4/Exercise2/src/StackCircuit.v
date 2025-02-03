@@ -20,6 +20,33 @@ module StackCircuit (
     output wire [3:0] AN
 );
   // Add your code here
-  
+  wire [1:0] dataInput;
+
+  InputSanitizer input(
+    .Reset(Reset),
+    .Clk(Clk),
+    .DataIn({Push, Pop}),
+    .DataOut(dataInput)
+  );
+
+  wire [15:0] dataStack;
+
+  StackUnit stack(
+    .Reset(Reset),
+    .Clk(Clk),
+    .Push(dataInput[1]),
+    .Pop(dataInput[0]),
+    .DataIn(DataIn),
+    .StackValue(dataStack[15:8]),
+    .StackCounter(dataStack[7:0])
+  );
+
+  SevenSegmentDisplay display(
+    .Reset(Reset),
+    .Clk(Clk),
+    .DataIn(dataStack),
+    .Segments(Segments),
+    .AN(AN)
+  );
   // End of your code
 endmodule
