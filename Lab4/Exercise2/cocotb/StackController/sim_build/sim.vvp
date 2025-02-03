@@ -1,0 +1,189 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_00000203954a34c0 .scope package, "$unit" "$unit" 2 1;
+ .timescale -9 -12;
+S_00000203954a3650 .scope module, "StackController" "StackController" 3 22;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "Push";
+    .port_info 1 /INPUT 1 "Pop";
+    .port_info 2 /INPUT 1 "Clk";
+    .port_info 3 /INPUT 1 "Reset";
+    .port_info 4 /INPUT 8 "DataIn";
+    .port_info 5 /OUTPUT 8 "StackCounter";
+    .port_info 6 /OUTPUT 8 "StackValue";
+    .port_info 7 /OUTPUT 1 "RAMWriteEnable";
+    .port_info 8 /OUTPUT 1 "RAMEnable";
+    .port_info 9 /OUTPUT 8 "RAMAddress";
+    .port_info 10 /OUTPUT 8 "RAMDataIn";
+    .port_info 11 /INPUT 8 "RAMDataOut";
+L_00000203954d99e0 .functor BUFZ 1, v000002039552c670_0, C4<0>, C4<0>, C4<0>;
+L_00000203954d9900 .functor BUFZ 1, v000002039552c710_0, C4<0>, C4<0>, C4<0>;
+L_00000203954d9580 .functor BUFZ 8, v000002039552c990_0, C4<00000000>, C4<00000000>, C4<00000000>;
+L_00000203954d9b30 .functor BUFZ 8, v000002039552c530_0, C4<00000000>, C4<00000000>, C4<00000000>;
+L_00000203954d9ac0 .functor BUFZ 8, v000002039552d070_0, C4<00000000>, C4<00000000>, C4<00000000>;
+o00000203954def68 .functor BUFZ 1, C4<z>; HiZ drive
+v00000203954a3b40_0 .net "Clk", 0 0, o00000203954def68;  0 drivers
+o00000203954def98 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000203954a38b0_0 .net "DataIn", 7 0, o00000203954def98;  0 drivers
+o00000203954defc8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000203954d47d0_0 .net "Pop", 0 0, o00000203954defc8;  0 drivers
+o00000203954deff8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000203954d4870_0 .net "Push", 0 0, o00000203954deff8;  0 drivers
+v00000203954d4910_0 .net "RAMAddress", 7 0, L_00000203954d9580;  1 drivers
+v00000203954d49b0_0 .net "RAMDataIn", 7 0, L_00000203954d9b30;  1 drivers
+o00000203954df088 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000203954d4a50_0 .net "RAMDataOut", 7 0, o00000203954df088;  0 drivers
+v000002039552bfe0_0 .net "RAMEnable", 0 0, L_00000203954d9900;  1 drivers
+v000002039552c080_0 .net "RAMWriteEnable", 0 0, L_00000203954d99e0;  1 drivers
+o00000203954df118 .functor BUFZ 1, C4<z>; HiZ drive
+v000002039552c120_0 .net "Reset", 0 0, o00000203954df118;  0 drivers
+v000002039552c1c0_0 .net "StackCounter", 7 0, L_000002039552c850;  1 drivers
+v000002039552ccb0_0 .net "StackValue", 7 0, L_00000203954d9ac0;  1 drivers
+v000002039552cd50_0 .net *"_ivl_10", 0 0, L_000002039552cad0;  1 drivers
+L_000002039552d3d0 .functor BUFT 1, C4<11111111>, C4<0>, C4<0>, C4<0>;
+v000002039552ca30_0 .net/2u *"_ivl_12", 7 0, L_000002039552d3d0;  1 drivers
+v000002039552cf30_0 .net *"_ivl_15", 7 0, L_000002039552c7b0;  1 drivers
+L_000002039552d388 .functor BUFT 1, C4<100000000>, C4<0>, C4<0>, C4<0>;
+v000002039552c490_0 .net/2u *"_ivl_8", 8 0, L_000002039552d388;  1 drivers
+v000002039552d070_0 .var "last_popped", 7 0;
+v000002039552c990_0 .var "ram_addr", 7 0;
+v000002039552c530_0 .var "ram_din", 7 0;
+v000002039552c710_0 .var "ram_en", 0 0;
+v000002039552c670_0 .var "ram_we", 0 0;
+v000002039552cdf0_0 .var "sp", 8 0;
+E_000002039548be20 .event anyedge, v00000203954d4870_0, v00000203954d47d0_0, v000002039552cdf0_0, v00000203954a38b0_0;
+E_000002039548be60 .event posedge, v00000203954a3b40_0;
+L_000002039552cad0 .cmp/eq 9, v000002039552cdf0_0, L_000002039552d388;
+L_000002039552c7b0 .part v000002039552cdf0_0, 0, 8;
+L_000002039552c850 .functor MUXZ 8, L_000002039552c7b0, L_000002039552d3d0, L_000002039552cad0, C4<>;
+    .scope S_00000203954a3650;
+T_0 ;
+    %wait E_000002039548be60;
+    %load/vec4 v000002039552c120_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 9;
+    %assign/vec4 v000002039552cdf0_0, 0;
+    %pushi/vec4 0, 0, 8;
+    %assign/vec4 v000002039552d070_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v00000203954d4870_0;
+    %flag_set/vec4 9;
+    %flag_get/vec4 9;
+    %jmp/0 T_0.4, 9;
+    %load/vec4 v00000203954d47d0_0;
+    %nor/r;
+    %and;
+T_0.4;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v000002039552cdf0_0;
+    %cmpi/u 256, 0, 9;
+    %jmp/0xz  T_0.5, 5;
+    %load/vec4 v000002039552cdf0_0;
+    %addi 1, 0, 9;
+    %assign/vec4 v000002039552cdf0_0, 0;
+T_0.5 ;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/vec4 v00000203954d47d0_0;
+    %flag_set/vec4 9;
+    %flag_get/vec4 9;
+    %jmp/0 T_0.9, 9;
+    %load/vec4 v00000203954d4870_0;
+    %nor/r;
+    %and;
+T_0.9;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.7, 8;
+    %load/vec4 v000002039552cdf0_0;
+    %cmpi/u 0, 0, 9;
+    %flag_or 5, 4; GT is !LE
+    %flag_inv 5;
+    %jmp/0xz  T_0.10, 5;
+    %load/vec4 v00000203954d4a50_0;
+    %assign/vec4 v000002039552d070_0, 0;
+    %load/vec4 v000002039552cdf0_0;
+    %subi 1, 0, 9;
+    %assign/vec4 v000002039552cdf0_0, 0;
+T_0.10 ;
+T_0.7 ;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00000203954a3650;
+T_1 ;
+    %wait E_000002039548be20;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002039552c710_0, 0, 1;
+    %load/vec4 v00000203954d4870_0;
+    %flag_set/vec4 10;
+    %flag_get/vec4 10;
+    %jmp/0 T_1.3, 10;
+    %load/vec4 v00000203954d47d0_0;
+    %nor/r;
+    %and;
+T_1.3;
+    %flag_set/vec4 9;
+    %flag_get/vec4 9;
+    %jmp/0 T_1.2, 9;
+    %load/vec4 v000002039552cdf0_0;
+    %cmpi/u 256, 0, 9;
+    %flag_get/vec4 5;
+    %and;
+T_1.2;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000002039552c670_0, 0, 1;
+    %load/vec4 v000002039552cdf0_0;
+    %parti/s 8, 0, 2;
+    %store/vec4 v000002039552c990_0, 0, 8;
+    %load/vec4 v00000203954a38b0_0;
+    %store/vec4 v000002039552c530_0, 0, 8;
+    %jmp T_1.1;
+T_1.0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000002039552c670_0, 0, 1;
+    %load/vec4 v000002039552cdf0_0;
+    %pad/u 32;
+    %cmpi/u 0, 0, 32;
+    %flag_or 5, 4; GT is !LE
+    %flag_inv 5;
+    %jmp/0xz  T_1.4, 5;
+    %load/vec4 v000002039552cdf0_0;
+    %subi 1, 0, 9;
+    %pad/u 8;
+    %store/vec4 v000002039552c990_0, 0, 8;
+    %jmp T_1.5;
+T_1.4 ;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v000002039552c990_0, 0, 8;
+T_1.5 ;
+    %pushi/vec4 0, 0, 8;
+    %store/vec4 v000002039552c530_0, 0, 8;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_00000203954a3650;
+T_2 ;
+    %vpi_call/w 3 123 "$dumpfile", "waveform.vcd" {0 0 0};
+    %vpi_call/w 3 124 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000203954a3650 {0 0 0};
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "-";
+    "D:/HW_lab/lab/Lab4/Exercise2/cocotb/StackController/../../src/StackController.v";
