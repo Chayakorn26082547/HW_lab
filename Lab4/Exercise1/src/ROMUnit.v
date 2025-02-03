@@ -6,24 +6,43 @@
 // Project Name: BinaryToDecimal
 // Target Devices: Basys3
 // Tool Versions: 2023.2
-// Description: The ROM Unit for the Binary to Decimal conversion Module
+// Description: The ROM Unit for the Binary to Decimal conversion Module.
+//              This version implements a synchronous ROM that outputs a 16-bit
+//              value. In this example, the ROM is preloaded with the ASCII codes
+//              for the two-digit decimal representation of numbers 0-63.
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module ROMUnit (
-    input wire [5:0] Address,
-    input wire Clk,
-    input wire Reset,
-    output wire [15:0] DataOut
+    input  wire [5:0] Address,  // Address selects one of 64 words
+    input  wire       Clk,      // Synchronous clock
+    input  wire       Reset,    // Active-high reset
+    output wire [15:0] DataOut  // 16-bit output (e.g. two ASCII characters)
 );
-  // Add your code here
-  reg [7:0] mem[63:0];
-
-  // End of your code
-`ifdef COCOTB_SIM
+  reg [7:0] mem [63:0];
+  integer i;
   initial begin
-    $dumpfile("waveform.vcd");  // Name of the dump file
-    $dumpvars(0, ROMUnit);  // Dump all variables for the top module
+    for (i = 0; i < 64; i = i + 1) begin
+      mem[i] = ( (i / 10) * 16 ) + (i % 10);  // Packed BCD
+    end
+  end
+
+  reg [15:0] dataReg;
+  assign DataOut = dataReg;
+
+  always @(posedge Clk or posedge Reset) begin
+    if (Reset)
+      dataReg <= 8'h00;
+    else
+      dataReg <= mem[Address];
+  end
+
+
+`ifdef COCOTB_SIM
+  // For simulation purposes, dump waveform data to a VCD file.
+  initial begin
+    $dumpfile("waveform.vcd");
+    $dumpvars(0, ROMUnit);
   end
 `endif
+
 endmodule
