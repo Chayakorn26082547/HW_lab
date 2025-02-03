@@ -21,7 +21,7 @@ module ROMUnit (
     reg [15:0] mem [63:0];
     
     initial begin
-        $readmemb("D:/HW_lab/lab/Lab4/Exercise1/src/rom.mem", mem);
+        $readmemb("your rom.mem path", mem);
     end
     
     reg [15:0] dataReg;
